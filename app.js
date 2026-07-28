@@ -222,7 +222,7 @@ function initPartnershipForm() {
 
     // Prepare Web3Forms payload
     const formData = new FormData();
-    const accessKey = window.WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+    const accessKey = window.WEB3FORMS_ACCESS_KEY || 'e1e750b2-ae69-4dd8-a683-1c88ea7e1538';
     formData.append('access_key', accessKey);
     formData.append('subject', activeTab === 'booking' ? 'New Booking Inquiry - Celestia Inn' : 'New Property Lease Proposal - Celestia Inn');
     formData.append('from_name', 'Celestia Inn Website');
@@ -247,12 +247,10 @@ function initPartnershipForm() {
     }
 
     try {
-      if (accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
-      }
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
     } catch (err) {
       console.error('Email service dispatch error:', err);
     }
