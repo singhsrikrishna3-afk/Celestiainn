@@ -150,7 +150,7 @@ function initPartnershipForm() {
   });
 
   // Handle Form Submission
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Fetch field values
@@ -220,40 +220,74 @@ function initPartnershipForm() {
       document.head.appendChild(style);
     }
 
-    // Simulate server side request delay
-    setTimeout(() => {
-      // Clear inputs
-      if (nameInput) nameInput.value = '';
-      if (contactInput) contactInput.value = '';
-      
+    // Prepare Web3Forms payload
+    const formData = new FormData();
+    const accessKey = window.WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+    formData.append('access_key', accessKey);
+    formData.append('subject', activeTab === 'booking' ? 'New Booking Inquiry - Celestia Inn' : 'New Property Lease Proposal - Celestia Inn');
+    formData.append('from_name', 'Celestia Inn Website');
+    formData.append('Full Name', name);
+    formData.append('Contact Number', contact);
+    formData.append('Form Type', activeTab === 'booking' ? 'Stay Booking' : 'Property Leasing');
+
+    if (activeTab === 'booking') {
+      const staySelect = document.getElementById('stay-destination');
       const dateInput = document.getElementById('check-in-date');
-      if (dateInput) dateInput.value = '';
-      
+      const guestSelect = document.getElementById('guest-count');
+      if (staySelect) formData.append('Destination', staySelect.options[staySelect.selectedIndex].text);
+      if (dateInput) formData.append('Check-in Date', dateInput.value);
+      if (guestSelect) formData.append('Guest Count', guestSelect.value);
+    } else {
       const locationInput = document.getElementById('location');
-      if (locationInput) locationInput.value = '';
+      const propertyType = document.getElementById('property-type');
+      const leaseTerm = document.getElementById('lease-term');
+      if (locationInput) formData.append('Property Location', locationInput.value);
+      if (propertyType) formData.append('Property Type', propertyType.value);
+      if (leaseTerm) formData.append('Lease Duration', leaseTerm.value);
+    }
 
-      // Update success overlay text dynamically
-      const successTitle = document.getElementById('success-overlay-title');
-      const successDesc = document.getElementById('success-overlay-desc');
-      const resetBtn = document.getElementById('reset-form-btn');
-
-      if (activeTab === 'booking') {
-        successTitle.textContent = 'Booking Request Received';
-        successDesc.textContent = 'Thank you for choosing Celestia Inn! Our reservation host will contact you shortly to coordinate your stay and confirm availability.';
-        if (resetBtn) resetBtn.textContent = 'Make Another Booking';
-      } else {
-        successTitle.textContent = 'Lease Proposal Received';
-        successDesc.textContent = 'Thank you for contacting Celestia Inn LLP. Our regional property acquisition manager will evaluate your details and reach out within 24 hours.';
-        if (resetBtn) resetBtn.textContent = 'Submit Another Property';
+    try {
+      if (accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
       }
+    } catch (err) {
+      console.error('Email service dispatch error:', err);
+    }
 
-      // Reset button
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
+    // Clear inputs
+    if (nameInput) nameInput.value = '';
+    if (contactInput) contactInput.value = '';
+    
+    const dateInput = document.getElementById('check-in-date');
+    if (dateInput) dateInput.value = '';
+    
+    const locationInput = document.getElementById('location');
+    if (locationInput) locationInput.value = '';
 
-      // Show success overlay
-      successOverlay.classList.add('active');
-    }, 1500);
+    // Update success overlay text dynamically
+    const successTitle = document.getElementById('success-overlay-title');
+    const successDesc = document.getElementById('success-overlay-desc');
+    const resetBtn = document.getElementById('reset-form-btn');
+
+    if (activeTab === 'booking') {
+      successTitle.textContent = 'Booking Request Received';
+      successDesc.textContent = 'Thank you for choosing Celestia Inn! Our reservation host will contact you shortly to coordinate your stay and confirm availability.';
+      if (resetBtn) resetBtn.textContent = 'Make Another Booking';
+    } else {
+      successTitle.textContent = 'Lease Proposal Received';
+      successDesc.textContent = 'Thank you for contacting Celestia Inn LLP. Our regional property acquisition manager will evaluate your details and reach out within 24 hours.';
+      if (resetBtn) resetBtn.textContent = 'Submit Another Property';
+    }
+
+    // Reset button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+
+    // Show success overlay
+    successOverlay.classList.add('active');
   });
 
   // Enable resetting form success overlay
