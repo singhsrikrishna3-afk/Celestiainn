@@ -221,36 +221,45 @@ function initPartnershipForm() {
     }
 
     // Prepare Web3Forms payload
-    const formData = new FormData();
     const accessKey = window.WEB3FORMS_ACCESS_KEY || 'e1e750b2-ae69-4dd8-a683-1c88ea7e1538';
-    formData.append('access_key', accessKey);
-    formData.append('subject', activeTab === 'booking' ? 'New Booking Inquiry - Celestia Inn' : 'New Property Lease Proposal - Celestia Inn');
-    formData.append('from_name', 'Celestia Inn Website');
-    formData.append('Full Name', name);
-    formData.append('Contact Number', contact);
-    formData.append('Form Type', activeTab === 'booking' ? 'Stay Booking' : 'Property Leasing');
+    const payload = {
+      access_key: accessKey,
+      subject: activeTab === 'booking' ? 'New Booking Inquiry - Celestia Inn' : 'New Property Lease Proposal - Celestia Inn',
+      from_name: 'Celestia Inn Website',
+      "Full Name": name,
+      "Contact Number": contact,
+      "Form Type": activeTab === 'booking' ? 'Stay Booking' : 'Property Leasing'
+    };
 
     if (activeTab === 'booking') {
       const staySelect = document.getElementById('stay-destination');
       const dateInput = document.getElementById('check-in-date');
       const guestSelect = document.getElementById('guest-count');
-      if (staySelect) formData.append('Destination', staySelect.options[staySelect.selectedIndex].text);
-      if (dateInput) formData.append('Check-in Date', dateInput.value);
-      if (guestSelect) formData.append('Guest Count', guestSelect.value);
+      if (staySelect) payload["Destination"] = staySelect.options[staySelect.selectedIndex].text;
+      if (dateInput) payload["Check-in Date"] = dateInput.value;
+      if (guestSelect) payload["Guest Count"] = guestSelect.value;
     } else {
       const locationInput = document.getElementById('location');
       const propertyType = document.getElementById('property-type');
       const leaseTerm = document.getElementById('lease-term');
-      if (locationInput) formData.append('Property Location', locationInput.value);
-      if (propertyType) formData.append('Property Type', propertyType.value);
-      if (leaseTerm) formData.append('Lease Duration', leaseTerm.value);
+      if (locationInput) payload["Property Location"] = locationInput.value;
+      if (propertyType) payload["Property Type"] = propertyType.value;
+      if (leaseTerm) payload["Lease Duration"] = leaseTerm.value;
     }
 
     try {
-      await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
+      const resData = await response.json();
+      if (!resData.success) {
+        console.warn('Web3Forms dispatch warning:', resData.message);
+      }
     } catch (err) {
       console.error('Email service dispatch error:', err);
     }
