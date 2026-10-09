@@ -6,3 +6,4 @@ node_modules/
 # Local env
 .env
 .env.local
+.env*
