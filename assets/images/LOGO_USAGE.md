@@ -56,3 +56,19 @@ font dependency.
 the kit's Corporate Vector Logos. The guidelines' stated primary is the one
 direction currently not shipping — worth reconciling before the kit goes to an
 external printer or signage vendor.
+
+## Superseded — previous generation
+
+These predate the Celestial Horizon set and are kept for history only. Do not
+use them for new work.
+
+| File | Replaced by |
+|---|---|
+| `celestia-logo.svg` | `celestia-horizon-logo.svg` |
+| `celestia-logo-stacked.svg` | `celestia-horizon-stacked.svg` |
+| `celestia-emblem.svg` | `celestia-horizon-mark.svg` |
+| `celestia-monogram.svg` | `celestia-horizon-mark.svg` |
+| `favicon.svg` | `celestia-horizon-favicon.svg` |
+
+Note the trap: `favicon.svg` and `celestia-horizon-favicon.svg` sit side by
+side and only the second is current.

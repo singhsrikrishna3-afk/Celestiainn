@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D6" />
+      <stop offset="40%" stop-color="#E9C176" />
+      <stop offset="100%" stop-color="#C5A059" />
+    </linearGradient>
+    <radialGradient id="favGlow" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#FFE7B3" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#161412" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Container Base with Deep Timber Dark Tone -->
+  <rect width="64" height="64" rx="14" fill="#161412" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="url(#favGold)" stroke-width="1" stroke-opacity="0.45" />
+
+  <!-- Center Glow -->
+  <circle cx="32" cy="27" r="18" fill="url(#favGlow)" />
+
+  <!-- Archway -->
+  <path d="M 16 52 L 16 32 C 16 22 23 15 32 15 C 41 15 48 22 48 32 L 48 52" 
+        stroke="url(#favGold)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+  <!-- Mountain Peak Threshold -->
+  <path d="M 14 52 L 23 43 L 32 50 L 41 41 L 50 52 Z" fill="#28211B" stroke="url(#favGold)" stroke-width="1.5" stroke-linejoin="round" />
+
+  <!-- The Celestial Polaris Star -->
+  <g transform="translate(32, 27)">
+    <!-- Cardinal Points -->
+    <polygon points="0,-15 2,-2 0,0 -2,-2" fill="#FFF2D6" />
+    <polygon points="0,15 2,2 0,0 -2,2" fill="#C5A059" />
+    <polygon points="-15,0 -2,-2 0,0 -2,2" fill="#E9C176" />
+    <polygon points="15,0 2,-2 0,0 2,2" fill="#FFF2D6" />
+    <!-- Diagonal Points -->
+    <polygon points="-8,-8 -1,-2 0,0 -2,-1" fill="#E9C176" />
+    <polygon points="8,-8 1,-2 0,0 2,-1" fill="#FFE7B3" />
+    <polygon points="-8,8 -1,2 0,0 -2,1" fill="#C5A059" />
+    <polygon points="8,8 1,2 0,0 2,1" fill="#E9C176" />
+    <!-- Core Diamond Flare -->
+    <circle cx="0" cy="0" r="1.6" fill="#FFFFFF" />
+  </g>
+</svg>
