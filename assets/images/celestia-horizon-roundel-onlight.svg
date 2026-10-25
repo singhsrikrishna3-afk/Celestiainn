@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Celestia Inn — Homestays &amp; Boutique Inns">
+  <defs>
+    <linearGradient id="chGold-rl" x1="8%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0%" stop-color="#C79A42" />
+      <stop offset="28%" stop-color="#A87C28" />
+      <stop offset="62%" stop-color="#7F5C14" />
+      <stop offset="84%" stop-color="#C09246" />
+      <stop offset="100%" stop-color="#5E4310" />
+    </linearGradient>
+    <linearGradient id="chRidge-rl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8C661D" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#6E4C11" stop-opacity="0.05" />
+    </linearGradient>
+    <radialGradient id="chSky-rl" cx="50%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#B88A5E" stop-opacity="0.11" />
+      <stop offset="100%" stop-color="#C5A059" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- type baselines: top arc runs over the top, bottom arc under the bottom -->
+    <path id="chArcTop-rl" d="M 22,100 A 78,78 0 0,1 178,100" />
+    <path id="chArcBot-rl" d="M 24,100 A 76,76 0 0,0 176,100" />
+  </defs>
+
+  <circle cx="100" cy="100" r="86" fill="url(#chSky-rl)" />
+
+  <!-- rings -->
+  <circle cx="100" cy="100" r="96" stroke="url(#chGold-rl)" stroke-width="2" />
+  <circle cx="100" cy="100" r="90.5" stroke="url(#chGold-rl)" stroke-width="0.7" stroke-opacity="0.6" />
+  <circle cx="100" cy="100" r="63" stroke="url(#chGold-rl)" stroke-width="0.9" stroke-opacity="0.65" />
+
+  <!-- curved type -->
+  <text font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-size="19" font-weight="600" letter-spacing="4.2" fill="url(#chGold-rl)">
+    <textPath href="#chArcTop-rl" startOffset="50%" text-anchor="middle">CELESTIA INN</textPath>
+  </text>
+  <text font-family="'Manrope', -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="8" font-weight="500" letter-spacing="3" fill="#6F6150">
+    <textPath href="#chArcBot-rl" startOffset="50%" text-anchor="middle">HOMESTAYS &amp; BOUTIQUE INNS</textPath>
+  </text>
+
+  <!-- separators at 9 and 3 o'clock -->
+  <polygon points="22.5,100 26,96.5 29.5,100 26,103.5" fill="url(#chGold-rl)" fill-opacity="0.9" />
+  <polygon points="170.5,100 174,96.5 177.5,100 174,103.5" fill="url(#chGold-rl)" fill-opacity="0.9" />
+
+  <!-- centre device -->
+  <g transform="translate(100,100) scale(1.12) translate(-50,-38.25)">
+    <path d="M 13 66 L 30 46 L 40 56 L 50 31 L 62 47 L 71 39 L 87 66 Z" fill="url(#chRidge-rl)" />
+    <path d="M 13 66 L 30 46 L 40 56 L 50 31 L 62 47 L 71 39 L 87 66"
+          stroke="url(#chGold-rl)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+    <path d="M 50 31 L 56 39 L 53.5 37 L 51 40 L 48.5 36.5 L 46.5 39.75 Z" fill="url(#chGold-rl)" fill-opacity="0.85" />
+    <line x1="13" y1="66" x2="87" y2="66" stroke="url(#chGold-rl)" stroke-width="1.9" stroke-linecap="round" />
+    <polygon points="50,10.5 50.80,16.06 53.54,14.46 51.94,17.20 57.5,18 51.94,18.80 53.54,21.54 50.80,19.94 50,25.5 49.20,19.94 46.46,21.54 48.06,18.80 42.5,18 48.06,17.20 46.46,14.46 49.20,16.06"
+             fill="url(#chGold-rl)" />
+    <circle cx="50" cy="18" r="1.05" fill="#FFF3DC" />
+  </g>
+</svg>

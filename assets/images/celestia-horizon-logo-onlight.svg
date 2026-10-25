@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" fill="none" role="img" aria-label="Celestia Inn — Homestays &amp; Boutique Inns">
+  <defs>
+    <linearGradient id="chGold-hl" x1="6%" y1="0%" x2="94%" y2="100%">
+      <stop offset="0%" stop-color="#C79A42" />
+      <stop offset="28%" stop-color="#A87C28" />
+      <stop offset="62%" stop-color="#7F5C14" />
+      <stop offset="84%" stop-color="#C09246" />
+      <stop offset="100%" stop-color="#5E4310" />
+    </linearGradient>
+    <linearGradient id="chRidge-hl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8C661D" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#6E4C11" stop-opacity="0.05" />
+    </linearGradient>
+    <radialGradient id="chSky-hl" cx="50%" cy="26%" r="52%">
+      <stop offset="0%" stop-color="#B88A5E" stop-opacity="0.13" />
+      <stop offset="100%" stop-color="#C5A059" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- ===== emblem ===== -->
+  <g transform="translate(6, 6) scale(0.68)">
+    <circle cx="50" cy="40" r="34" fill="url(#chSky-hl)" />
+    <circle cx="50" cy="50" r="46" stroke="url(#chGold-hl)" stroke-width="1.6" />
+    <circle cx="50" cy="50" r="41.5" stroke="url(#chGold-hl)" stroke-width="0.5" stroke-opacity="0.55" />
+    <path d="M 13 66 L 30 46 L 40 56 L 50 31 L 62 47 L 71 39 L 87 66 Z" fill="url(#chRidge-hl)" />
+    <path d="M 13 66 L 30 46 L 40 56 L 50 31 L 62 47 L 71 39 L 87 66"
+          stroke="url(#chGold-hl)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" />
+    <path d="M 50 31 L 56 39 L 53.5 37 L 51 40 L 48.5 36.5 L 46.5 39.75 Z" fill="url(#chGold-hl)" fill-opacity="0.85" />
+    <line x1="13" y1="66" x2="87" y2="66" stroke="url(#chGold-hl)" stroke-width="1.8" stroke-linecap="round" />
+    <polygon points="50,10.5 50.80,16.06 53.54,14.46 51.94,17.20 57.5,18 51.94,18.80 53.54,21.54 50.80,19.94 50,25.5 49.20,19.94 46.46,21.54 48.06,18.80 42.5,18 48.06,17.20 46.46,14.46 49.20,16.06"
+             fill="url(#chGold-hl)" />
+    <circle cx="50" cy="18" r="1.05" fill="#FFF3DC" />
+  </g>
+
+  <!-- ===== wordmark ===== -->
+  <text x="92" y="42"
+        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
+        font-size="27" font-weight="600" letter-spacing="3"
+        fill="url(#chGold-hl)">CELESTIA INN</text>
+
+  <!-- divider -->
+  <line x1="92" y1="53" x2="236" y2="53" stroke="url(#chGold-hl)" stroke-width="0.6" stroke-opacity="0.45" />
+  <polygon points="244,53 246.6,50.4 249.2,53 246.6,55.6" fill="url(#chGold-hl)" fill-opacity="0.8" />
+  <line x1="257" y1="53" x2="328" y2="53" stroke="url(#chGold-hl)" stroke-width="0.6" stroke-opacity="0.45" />
+
+  <!-- tagline -->
+  <text x="92" y="68"
+        font-family="'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="8.5" font-weight="500" letter-spacing="3.4"
+        fill="#6F6150">HOMESTAYS &amp; BOUTIQUE INNS</text>
+</svg>
