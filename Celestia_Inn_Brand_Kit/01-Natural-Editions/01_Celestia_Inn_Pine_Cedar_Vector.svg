@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" fill="none">
+  <!-- Natural Color Palette Definition: No Gold, Pure Himalayan Earth & Forest -->
+  <defs>
+    <!-- Forest Pine Gradient -->
+    <linearGradient id="pineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D5344" />
+      <stop offset="100%" stop-color="#18362B" />
+    </linearGradient>
+
+    <!-- Himalayan Cedar Wood Tone -->
+    <linearGradient id="cedarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B88A5E" />
+      <stop offset="100%" stop-color="#855B33" />
+    </linearGradient>
+
+    <!-- Shaded Cedar Mountain Face -->
+    <linearGradient id="cedarShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E4825" />
+      <stop offset="100%" stop-color="#472C14" />
+    </linearGradient>
+
+    <!-- Sage Mist -->
+    <linearGradient id="sageMist" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8CA899" />
+      <stop offset="100%" stop-color="#557565" />
+    </linearGradient>
+  </defs>
+
+  <!-- ================= NATURAL CIRCULAR MEDALLION (Centered at x=160, y=85, r=72) ================= -->
+  <g transform="translate(160, 85)">
+    <!-- Outer Textured Cord / Circular Ring -->
+    <circle cx="0" cy="0" r="70" stroke="url(#pineGrad)" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="64" stroke="url(#sageMist)" stroke-width="1.2" stroke-dasharray="2 3" />
+    <circle cx="0" cy="0" r="61" stroke="url(#pineGrad)" stroke-width="0.8" opacity="0.6" />
+
+    <!-- Cardinal Natural Ticks -->
+    <polygon points="0,-72 2,-69 0,-66 -2,-69" fill="url(#pineGrad)" />
+    <polygon points="0,72 2,69 0,66 -2,69" fill="url(#pineGrad)" />
+    <polygon points="-72,0 -69,2 -66,0 -69,-2" fill="url(#pineGrad)" />
+    <polygon points="72,0 69,2 66,0 69,-2" fill="url(#pineGrad)" />
+
+    <!-- Stardust & Astral Arc -->
+    <path d="M -42 -10 C -28 -38 0 -48 28 -42 C 40 -38 48 -28 52 -12" 
+          stroke="url(#sageMist)" stroke-width="0.8" stroke-dasharray="1.5 3.5" stroke-linecap="round" />
+    <circle cx="-32" cy="-24" r="1.2" fill="#557565" />
+    <circle cx="-16" cy="-38" r="1.6" fill="#2D5344" />
+    <circle cx="12" cy="-44" r="1.2" fill="#557565" />
+    <circle cx="34" cy="-34" r="1.5" fill="#2D5344" />
+    <circle cx="48" cy="-18" r="1.0" fill="#557565" />
+
+    <!-- ================= HIMALAYAN MOUNTAIN RIDGES (Cedar & Pine) ================= -->
+    <!-- Left Foothill -->
+    <polygon points="-58,35 -38,12 -20,28 -36,44 -56,36" fill="url(#cedarShade)" />
+    <polygon points="-38,12 -20,28 -28,36 -46,20" fill="url(#cedarGrad)" />
+
+    <!-- Right Foothill -->
+    <polygon points="58,35 38,12 20,28 36,44 56,36" fill="url(#cedarGrad)" />
+    <polygon points="38,12 20,28 28,36 46,20" fill="url(#cedarShade)" />
+
+    <!-- Flanking Left Peak -->
+    <polygon points="-38,12 -16,-8 6,24 -20,28" fill="url(#cedarGrad)" />
+    <polygon points="-16,-8 6,24 -6,38 -26,22" fill="url(#cedarShade)" />
+
+    <!-- Flanking Right Peak -->
+    <polygon points="38,12 16,-8 -6,24 20,28" fill="url(#cedarShade)" />
+    <polygon points="16,-8 -6,24 6,38 26,22" fill="url(#cedarGrad)" />
+
+    <!-- Central Everest / Shangarh Peak: Apex at (0, -22) -->
+    <!-- Left Sunlit Face (Natural Cedar Timber) -->
+    <polygon points="0,-22 -24,24 0,54" fill="url(#cedarGrad)" />
+    <!-- Right Shaded Face (Deep Forest Cedar) -->
+    <polygon points="0,-22 24,24 0,54" fill="url(#cedarShade)" />
+    <!-- Spine Line -->
+    <line x1="0" y1="-22" x2="0" y2="54" stroke="#FAF8F5" stroke-width="0.8" opacity="0.6" />
+
+    <!-- Mountain Contour Lines in Forest Pine -->
+    <path d="M -58 35 L -38 12 L -16 -8 L 0 -22 L 16 -8 L 38 12 L 58 35" 
+          stroke="url(#pineGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M -54 38 C -36 58 -18 66 0 66 C 18 66 36 58 54 38" 
+          stroke="url(#pineGrad)" stroke-width="1.6" fill="none" />
+
+    <!-- ================= THE POLARIS COMPASS STAR (Forest Pine & Sage) ================= -->
+    <g transform="translate(0, -22)">
+      <!-- North Ray -->
+      <polygon points="0,0 -3,0 0,-34" fill="#2D5344" />
+      <polygon points="0,0 3,0 0,-34" fill="#18362B" />
+
+      <!-- South Ray (Anchors into Peak) -->
+      <polygon points="0,0 -2.5,0 0,18" fill="#18362B" />
+      <polygon points="0,0 2.5,0 0,18" fill="#557565" />
+
+      <!-- West Ray -->
+      <polygon points="0,0 0,-3 -28,0" fill="#2D5344" />
+      <polygon points="0,0 0,3 -28,0" fill="#18362B" />
+
+      <!-- East Ray -->
+      <polygon points="0,0 0,-3 28,0" fill="#18362B" />
+      <polygon points="0,0 0,3 28,0" fill="#557565" />
+
+      <!-- Diagonal Rays -->
+      <polygon points="0,0 -2,-2 -16,-16" fill="#557565" />
+      <polygon points="0,0 2,-2 -16,-16" fill="#18362B" />
+      <polygon points="0,0 2,-2 16,-16" fill="#18362B" />
+      <polygon points="0,0 -2,-2 16,-16" fill="#2D5344" />
+      <polygon points="0,0 -2,2 -14,14" fill="#18362B" />
+      <polygon points="0,0 2,2 -14,14" fill="#557565" />
+      <polygon points="0,0 2,2 14,14" fill="#2D5344" />
+      <polygon points="0,0 -2,2 14,14" fill="#18362B" />
+
+      <!-- Center Diamond -->
+      <polygon points="0,-4 4,0 0,4 -4,0" fill="#8CA899" />
+      <circle cx="0" cy="0" r="1.5" fill="#FAF8F5" />
+    </g>
+  </g>
+
+  <!-- ================= TYPOGRAPHY (NATURAL FOREST PINE) ================= -->
+  <text x="160" y="198" 
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif" 
+        font-size="28" 
+        font-weight="700" 
+        letter-spacing="4" 
+        fill="#18362B">CELESTIA INN</text>
+
+  <!-- Organic Divider -->
+  <line x1="60" y1="214" x2="140" y2="214" stroke="#557565" stroke-width="0.8" opacity="0.6" />
+  <polygon points="160,210 163,214 160,218 157,214" fill="#2D5344" />
+  <line x1="180" y1="214" x2="260" y2="214" stroke="#557565" stroke-width="0.8" opacity="0.6" />
+
+  <!-- Subtitle Tagline -->
+  <text x="160" y="234" 
+        text-anchor="middle"
+        font-family="'Manrope', -apple-system, sans-serif" 
+        font-size="9.5" 
+        font-weight="700" 
+        letter-spacing="4" 
+        fill="#4A6155">HOMESTAYS &amp; BOUTIQUE INNS</text>
+
+  <text x="160" y="254" 
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif" 
+        font-style="italic"
+        font-size="9" 
+        letter-spacing="1" 
+        fill="#855B33">&bull; Shangarh &bull; Sainj Valley &bull; Himachal &bull;</text>
+</svg>

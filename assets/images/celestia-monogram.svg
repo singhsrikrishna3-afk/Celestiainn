@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="monoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D6" />
+      <stop offset="25%" stop-color="#E9C176" />
+      <stop offset="60%" stop-color="#C5A059" />
+      <stop offset="85%" stop-color="#FFDEA5" />
+      <stop offset="100%" stop-color="#8F6B28" />
+    </linearGradient>
+    <radialGradient id="monoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE7B3" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#161412" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="60" cy="60" r="56" fill="#161412" stroke="url(#monoGold)" stroke-width="1.8" />
+  <circle cx="60" cy="60" r="51" stroke="url(#monoGold)" stroke-width="0.75" stroke-dasharray="2 3" stroke-opacity="0.7" />
+  <circle cx="60" cy="60" r="46" fill="url(#monoGlow)" />
+
+  <!-- Four Astral Cardinal Points -->
+  <polygon points="60,6 61.5,8 60,10 58.5,8" fill="url(#monoGold)" />
+  <polygon points="60,110 61.5,112 60,114 58.5,112" fill="url(#monoGold)" />
+  <polygon points="6,60 8,61.5 10,60 8,58.5" fill="url(#monoGold)" />
+  <polygon points="110,60 112,61.5 114,60 112,58.5" fill="url(#monoGold)" />
+
+  <!-- The Crown Polaris Star -->
+  <g transform="translate(60, 28)">
+    <polygon points="0,-12 2,-2 0,0 -2,-2" fill="#FFF2D6" />
+    <polygon points="0,12 2,2 0,0 -2,2" fill="#C5A059" />
+    <polygon points="-12,0 -2,-2 0,0 -2,2" fill="#E9C176" />
+    <polygon points="12,0 2,-2 0,0 2,2" fill="#FFF2D6" />
+    <polygon points="-6,-6 -1,-2 0,0 -2,-1" fill="#E9C176" />
+    <polygon points="6,-6 1,-2 0,0 2,-1" fill="#FFE7B3" />
+    <polygon points="-6,6 -1,2 0,0 -2,1" fill="#C5A059" />
+    <polygon points="6,6 1,2 0,0 2,1" fill="#E9C176" />
+    <circle cx="0" cy="0" r="1.3" fill="#FFFFFF" />
+  </g>
+
+  <!-- Monogram C & I -->
+  <!-- Classical Serif Letter "C" -->
+  <path d="M 75 52 C 72 47 67 44 60 44 C 47.5 44 38 53.5 38 67 C 38 80.5 47.5 90 60 90 C 67 90 73 87 76 81 L 71 77 C 69 81 65 83 60 83 C 51.5 83 45.5 76.5 45.5 67 C 45.5 57.5 51.5 51 60 51 C 65 51 69 53 71 57 Z" 
+        fill="url(#monoGold)" />
+
+  <!-- Classical Serif Pillar "I" Intersecting Harmoniously -->
+  <path d="M 57 58 L 63 58 L 63 76 L 57 76 Z" fill="url(#monoGold)" />
+  <line x1="55" y1="58" x2="65" y2="58" stroke="url(#monoGold)" stroke-width="1.2" stroke-linecap="round" />
+  <line x1="55" y1="76" x2="65" y2="76" stroke="url(#monoGold)" stroke-width="1.2" stroke-linecap="round" />
+
+  <!-- Base Laurel & Orbit Arch -->
+  <path d="M 32 94 C 48 103 72 103 88 94" stroke="url(#monoGold)" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="1 3" />
+</svg>

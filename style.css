@@ -1160,3 +1160,286 @@ select.form-input {
 }
 
 
+
+/* ===========================================================================
+   Booking Engine — live availability, quote panel & confirmation
+   =========================================================================== */
+
+.field-hint {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.label-optional {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-left: 6px;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 64px;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* --- Availability + error notices ---------------------------------------- */
+
+.availability-note,
+.form-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--outline-variant);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  animation: note-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.availability-note[hidden],
+.form-error[hidden],
+.quote-panel[hidden],
+.success-details[hidden] {
+  display: none;
+}
+
+@keyframes note-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.availability-note .material-symbols-outlined,
+.form-error .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.availability-note strong,
+.form-error strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.availability-note.note-ok {
+  border-color: rgba(126, 186, 134, 0.35);
+  background: rgba(126, 186, 134, 0.08);
+}
+.availability-note.note-ok .material-symbols-outlined { color: #7eba86; }
+
+.availability-note.note-warn {
+  border-color: rgba(233, 193, 118, 0.35);
+  background: rgba(233, 193, 118, 0.07);
+}
+.availability-note.note-warn .material-symbols-outlined { color: var(--primary-gold); }
+
+.availability-note.note-info {
+  border-color: var(--outline-subtle);
+  background: rgba(233, 193, 118, 0.05);
+  margin-bottom: 20px;
+}
+.availability-note.note-info .material-symbols-outlined { color: var(--primary-gold-dim); }
+
+.form-error {
+  border-color: rgba(214, 123, 108, 0.4);
+  background: rgba(214, 123, 108, 0.1);
+  color: #f0d9d4;
+}
+.form-error .material-symbols-outlined { color: #d67b6c; }
+
+/* Inline "next available dates" suggestion */
+.note-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--primary-gold);
+  text-decoration: underline;
+  text-decoration-color: var(--outline-subtle);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.note-link:hover {
+  color: var(--primary-gold-hover);
+  text-decoration-color: var(--primary-gold-hover);
+}
+
+/* --- Quote panel --------------------------------------------------------- */
+
+.quote-panel {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--outline-subtle);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    160deg,
+    rgba(233, 193, 118, 0.07) 0%,
+    rgba(233, 193, 118, 0.02) 100%
+  );
+  animation: note-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quote-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quote-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.quote-row span:last-child {
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.quote-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--outline-subtle);
+}
+
+.quote-total-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.quote-total-value {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.quote-foot {
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* --- Busy submit button -------------------------------------------------- */
+
+.btn-busy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-busy .spinner {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate { 100% { transform: rotate(360deg); } }
+
+/* --- Confirmation details ----------------------------------------------- */
+
+.success-details {
+  width: 100%;
+  margin: 4px 0 28px;
+  text-align: left;
+}
+
+.confirm-ref {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px dashed var(--outline-subtle);
+  border-radius: var(--radius-md);
+  background: rgba(233, 193, 118, 0.06);
+}
+
+.confirm-ref-label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.confirm-ref-value {
+  font-family: var(--font-headline);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--primary-gold);
+}
+
+.confirm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--outline-variant);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.confirm-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--surface-card);
+}
+
+.confirm-cell-label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.confirm-cell-value {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .confirm-grid { grid-template-columns: 1fr; }
+  .quote-total-value { font-size: 1.25rem; }
+}

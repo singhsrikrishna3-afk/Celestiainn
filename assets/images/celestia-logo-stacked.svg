@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 210" fill="none" class="celestia-logo-stacked">
+  <defs>
+    <!-- Metallic Gold Gradient -->
+    <linearGradient id="stackedGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D6" />
+      <stop offset="25%" stop-color="#E9C176" />
+      <stop offset="60%" stop-color="#D4AA5B" />
+      <stop offset="85%" stop-color="#FFDEA5" />
+      <stop offset="100%" stop-color="#9E7831" />
+    </linearGradient>
+
+    <radialGradient id="stackedStarGlow" cx="50%" cy="36%" r="40%">
+      <stop offset="0%" stop-color="#FFE7B3" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="#C5A059" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="stkFLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5E0" />
+      <stop offset="100%" stop-color="#E9C176" />
+    </linearGradient>
+    <linearGradient id="stkFDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#7A551A" />
+    </linearGradient>
+    <linearGradient id="stkFMid" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFDEA5" />
+      <stop offset="100%" stop-color="#B3893C" />
+    </linearGradient>
+
+    <filter id="stkShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- ================= CENTERED EMBLEM (100x100 translated to center x=70, y=10) ================= -->
+  <g transform="translate(70, 8)" filter="url(#stkShadow)">
+    <circle cx="50" cy="36" r="28" fill="url(#stackedStarGlow)" />
+
+    <circle cx="50" cy="50" r="46" stroke="url(#stackedGold)" stroke-width="1.2" />
+    <circle cx="50" cy="50" r="43" stroke="url(#stackedGold)" stroke-width="0.6" stroke-dasharray="1.5 3.5" stroke-opacity="0.65" />
+
+    <polygon points="50,2 51.5,4 50,6 48.5,4" fill="url(#stackedGold)" />
+    <polygon points="50,94 51.5,96 50,98 48.5,96" fill="url(#stackedGold)" />
+    <polygon points="2,50 4,51.5 6,50 4,48.5" fill="url(#stackedGold)" />
+    <polygon points="94,50 96,51.5 98,50 96,48.5" fill="url(#stackedGold)" />
+
+    <path d="M 23 80 L 23 48 C 23 33.088 35.088 21 50 21 C 64.912 21 77 33.088 77 48 L 77 80" 
+          stroke="url(#stackedGold)" stroke-width="1.2" stroke-linecap="round" fill="none" />
+    <path d="M 29 80 L 29 49 C 29 37.402 38.402 28 50 28 C 61.598 28 71 37.402 71 49 L 71 80" 
+          stroke="url(#stackedGold)" stroke-width="0.8" stroke-dasharray="0.5 2.5" stroke-linecap="round" fill="none" stroke-opacity="0.75" />
+
+    <path d="M 50 14 L 52.5 19 L 50 21 L 47.5 19 Z" fill="url(#stackedGold)" />
+    <circle cx="50" cy="12" r="1.2" fill="url(#stackedGold)" />
+
+    <line x1="18" y1="80" x2="82" y2="80" stroke="url(#stackedGold)" stroke-width="1.5" stroke-linecap="round" />
+
+    <polygon points="18,80 34,64 45,74 58,60 72,73 82,80" fill="url(#stkFDark)" fill-opacity="0.4" />
+    <path d="M 20 80 L 35 65 L 45 74 L 58 61 L 71 73 L 80 80" 
+          stroke="url(#stackedGold)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+    <polygon points="35,65 45,74 41,74" fill="url(#stkFDark)" fill-opacity="0.6" />
+    <polygon points="58,61 66,73 63,73" fill="url(#stkFDark)" fill-opacity="0.6" />
+
+    <g transform="translate(0, -2)">
+      <polygon points="50,42 47.5,42 50,19" fill="url(#stkFLight)" />
+      <polygon points="50,42 52.5,42 50,19" fill="url(#stkFDark)" />
+      <polygon points="50,42 47.5,42 50,60" fill="url(#stkFMid)" />
+      <polygon points="50,42 52.5,42 50,60" fill="url(#stkFLight)" />
+      <polygon points="50,42 50,39.5 28,42" fill="url(#stkFLight)" />
+      <polygon points="50,42 50,44.5 28,42" fill="url(#stkFDark)" />
+      <polygon points="50,42 50,39.5 72,42" fill="url(#stkFMid)" />
+      <polygon points="50,42 50,44.5 72,42" fill="url(#stkFLight)" />
+      <polygon points="50,42 48.5,40.5 36,28" fill="url(#stkFLight)" />
+      <polygon points="50,42 50.5,43.5 36,28" fill="url(#stkFDark)" />
+      <polygon points="50,42 51.5,40.5 64,28" fill="url(#stkFMid)" />
+      <polygon points="50,42 49.5,43.5 64,28" fill="url(#stkFLight)" />
+      <polygon points="50,42 48.5,43.5 37,54" fill="url(#stkFDark)" />
+      <polygon points="50,42 50.5,40.5 37,54" fill="url(#stkFLight)" />
+      <polygon points="50,42 51.5,43.5 63,54" fill="url(#stkFLight)" />
+      <polygon points="50,42 49.5,40.5 63,54" fill="url(#stkFMid)" />
+      <polygon points="50,38.5 53.5,42 50,45.5 46.5,42" fill="url(#stkFLight)" />
+      <circle cx="50" cy="42" r="1.5" fill="#FFFFFF" />
+    </g>
+
+    <circle cx="34" cy="32" r="0.9" fill="#FFF2D6" />
+    <circle cx="66" cy="32" r="0.9" fill="#FFF2D6" />
+  </g>
+
+  <!-- ================= TYPOGRAPHY (CENTERED) ================= -->
+  <text x="120" y="142" 
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif" 
+        font-size="24" 
+        font-weight="600" 
+        letter-spacing="3" 
+        fill="url(#stackedGold)"
+        filter="url(#stkShadow)">CELESTIA INN</text>
+
+  <!-- Ornament divider -->
+  <line x1="30" y1="158" x2="105" y2="158" stroke="url(#stackedGold)" stroke-width="0.6" stroke-opacity="0.5" />
+  <polygon points="118,158 120,156 122,158 120,160" fill="url(#stackedGold)" />
+  <line x1="135" y1="158" x2="210" y2="158" stroke="url(#stackedGold)" stroke-width="0.6" stroke-opacity="0.5" />
+
+  <text x="120" y="174" 
+        text-anchor="middle"
+        font-family="'Manrope', -apple-system, sans-serif" 
+        font-size="8" 
+        font-weight="600" 
+        letter-spacing="3.8" 
+        fill="#D1C5B4">HOMESTAYS &amp; BOUTIQUE INNS</text>
+
+  <text x="120" y="194" 
+        text-anchor="middle"
+        font-family="'Playfair Display', Georgia, serif" 
+        font-style="italic"
+        font-size="9" 
+        fill="#E9C176" 
+        opacity="0.75">&bull; Shangarh &bull; Kullu &bull; India &bull;</text>
+</svg>

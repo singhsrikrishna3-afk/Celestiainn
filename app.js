@@ -137,7 +137,9 @@ function initPartnershipForm() {
         bookingFields.style.display = 'block';
         leasingFields.style.display = 'none';
         formTitle.textContent = 'Book a Stay';
-        submitBtn.textContent = 'Submit Booking Inquiry';
+        submitBtn.textContent = window.CelestiaBooking?.isOnlineBookable()
+          ? 'Check Availability'
+          : 'Submit Booking Inquiry';
         formNote.textContent = 'By submitting this form, you authorize Celestia Inn LLP to contact you regarding bookings.';
       } else {
         bookingFields.style.display = 'none';
@@ -152,6 +154,13 @@ function initPartnershipForm() {
   // Handle Form Submission
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Stays open to online booking are handled by booking.js, which prices the
+    // stay server-side and takes payment. Everything else stays an inquiry.
+    if (activeTab === 'booking' && window.CelestiaBooking?.isOnlineBookable()) {
+      window.CelestiaBooking.submit();
+      return;
+    }
 
     // Fetch field values
     const nameInput = document.getElementById('name');
@@ -174,9 +183,9 @@ function initPartnershipForm() {
 
     // Tab-specific validation
     if (activeTab === 'booking') {
-      const dateInput = document.getElementById('check-in-date');
+      const dateInput = document.getElementById('inquiry-date');
       if (dateInput && !dateInput.value) {
-        alert('Please select a check-in date.');
+        alert('Please select a preferred date.');
         return;
       }
       // Date in past check
@@ -233,10 +242,10 @@ function initPartnershipForm() {
 
     if (activeTab === 'booking') {
       const staySelect = document.getElementById('stay-destination');
-      const dateInput = document.getElementById('check-in-date');
-      const guestSelect = document.getElementById('guest-count');
+      const dateInput = document.getElementById('inquiry-date');
+      const guestSelect = document.getElementById('inquiry-guests');
       if (staySelect) payload["Destination"] = staySelect.options[staySelect.selectedIndex].text;
-      if (dateInput) payload["Check-in Date"] = dateInput.value;
+      if (dateInput) payload["Preferred Date"] = dateInput.value;
       if (guestSelect) payload["Guest Count"] = guestSelect.value;
     } else {
       const locationInput = document.getElementById('location');
@@ -268,7 +277,7 @@ function initPartnershipForm() {
     if (nameInput) nameInput.value = '';
     if (contactInput) contactInput.value = '';
     
-    const dateInput = document.getElementById('check-in-date');
+    const dateInput = document.getElementById('inquiry-date');
     if (dateInput) dateInput.value = '';
     
     const locationInput = document.getElementById('location');

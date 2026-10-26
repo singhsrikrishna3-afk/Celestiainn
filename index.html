@@ -8,7 +8,7 @@
   <title>Celestia Inn - Cozy Homestays, Boutique Inns &amp; Serviced Accommodations India</title>
   
   <!-- CSS Stylesheet -->
-  <link href="style.css?v=3" rel="stylesheet" />
+  <link href="style.css?v=4" rel="stylesheet" />
 </head>
 <body class="antialiased">
 
@@ -366,6 +366,7 @@
               <p id="success-overlay-desc" class="text-body-md" style="margin-bottom: 24px;">
                 Thank you for contacting Celestia Inn LLP. Our regional manager will evaluate your details and reach out within 24 hours.
               </p>
+              <div id="success-details" class="success-details" hidden></div>
               <button id="reset-form-btn" class="btn btn-primary">Submit Another Inquiry</button>
             </div>
 
@@ -377,7 +378,7 @@
 
             <h3 id="form-container-title" class="text-headline-md form-title" style="margin-top: 24px;">Book a Stay</h3>
             
-            <form id="partnership-form">
+            <form id="partnership-form" novalidate>
               <!-- Shared fields -->
               <div class="form-group">
                 <label for="name" class="text-label-caps form-label">Full Name</label>
@@ -394,25 +395,81 @@
                 <div class="form-group">
                   <label for="stay-destination" class="text-label-caps form-label">Select Stay / Destination</label>
                   <select id="stay-destination" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22%23e5e2de%22><path d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
-                    <option value="the-higher-plane">THP &mdash; The Higher Plane, Shangarh (Active)</option>
+                    <option value="thp" data-bookable="true">THP &mdash; The Higher Plane, Shangarh (Book Online)</option>
                     <option value="cozy-mountain-cabins">Cozy Mountain Cabins (Upcoming)</option>
                     <option value="indian-boutique-inns">Indian Boutique Inns (Upcoming)</option>
                     <option value="cozy-urban-suites">Cozy Urban Suites (Upcoming)</option>
                   </select>
                 </div>
-                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                  <div>
-                    <label for="check-in-date" class="text-label-caps form-label">Check-in Date</label>
-                    <input type="date" id="check-in-date" class="form-input" style="color-scheme: dark;" />
+
+                <!-- Live reservation module: shown only for stays open to online booking -->
+                <div id="booking-live">
+                  <div class="form-group">
+                    <label for="email" class="text-label-caps form-label">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="e.g., vikram@example.com" autocomplete="email" />
+                    <p class="field-hint">Your booking confirmation and reference are sent here.</p>
                   </div>
-                  <div>
+
+                  <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div>
+                      <label for="check-in-date" class="text-label-caps form-label">Check-in</label>
+                      <input type="date" id="check-in-date" class="form-input" style="color-scheme: dark;" />
+                    </div>
+                    <div>
+                      <label for="check-out-date" class="text-label-caps form-label">Check-out</label>
+                      <input type="date" id="check-out-date" class="form-input" style="color-scheme: dark;" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
                     <label for="guest-count" class="text-label-caps form-label">Guests</label>
                     <select id="guest-count" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22%23e5e2de%22><path d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
                       <option value="1">1 Guest</option>
-                      <option value="2">2 Guests</option>
-                      <option value="3">3 Guests</option>
-                      <option value="4+">4+ Guests</option>
+                      <option value="2" selected>2 Guests</option>
                     </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="guest-notes" class="text-label-caps form-label">Anything we should know? <span class="label-optional">Optional</span></label>
+                    <textarea id="guest-notes" class="form-input" rows="2" maxlength="1000" placeholder="Arrival time, dietary needs, trek interests, airport pickup&hellip;"></textarea>
+                  </div>
+
+                  <!-- Availability + quote, filled by booking.js -->
+                  <div id="availability-note" class="availability-note" hidden></div>
+
+                  <div id="quote-panel" class="quote-panel" hidden>
+                    <div class="quote-rows" id="quote-rows"></div>
+                    <div class="quote-total-row">
+                      <span class="quote-total-label">Total payable now</span>
+                      <span class="quote-total-value" id="quote-total">&mdash;</span>
+                    </div>
+                    <p class="quote-foot" id="quote-foot">Paid in full to confirm your stay. Secure payment by Razorpay &mdash; UPI, cards, netbanking &amp; wallets.</p>
+                  </div>
+                </div>
+
+                <!-- Fallback for stays not yet open to online booking -->
+                <div id="booking-inquiry-only" hidden>
+                  <div class="availability-note note-info">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <div>
+                      <strong>Opening soon.</strong> This collection is not open for online booking yet.
+                      Leave your details and our reservation host will reach out as soon as dates are released.
+                    </div>
+                  </div>
+                  <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div>
+                      <label for="inquiry-date" class="text-label-caps form-label">Preferred Date</label>
+                      <input type="date" id="inquiry-date" class="form-input" style="color-scheme: dark;" />
+                    </div>
+                    <div>
+                      <label for="inquiry-guests" class="text-label-caps form-label">Guests</label>
+                      <select id="inquiry-guests" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22%23e5e2de%22><path d=%22M7 10l5 5 5-5z%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4+">4+ Guests</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -444,7 +501,9 @@
                 </div>
               </div>
               
-              <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 12px;">Submit Booking Inquiry</button>
+              <div id="form-error" class="form-error" hidden></div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 12px;">Check Availability</button>
               
               <p id="form-note-text" class="form-note">
                 By submitting this form, you authorize Celestia Inn LLP to contact you regarding bookings.
@@ -491,6 +550,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="app.js?v=3" defer></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <script src="app.js?v=4" defer></script>
+  <script src="booking.js?v=1" defer></script>
 </body>
 </html>

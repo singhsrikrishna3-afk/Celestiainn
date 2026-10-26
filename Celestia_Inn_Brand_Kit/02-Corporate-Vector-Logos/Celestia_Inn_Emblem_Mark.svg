@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <!-- Master Metallic Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5E0" />
+      <stop offset="20%" stop-color="#F2D396" />
+      <stop offset="45%" stop-color="#E2B867" />
+      <stop offset="70%" stop-color="#C59A45" />
+      <stop offset="90%" stop-color="#FFDEA5" />
+      <stop offset="100%" stop-color="#8C661D" />
+    </linearGradient>
+
+    <!-- Mountain Shaded Face Gradient -->
+    <linearGradient id="mountainDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B3893C" />
+      <stop offset="50%" stop-color="#735114" />
+      <stop offset="100%" stop-color="#422D08" />
+    </linearGradient>
+
+    <!-- Mountain Light Face Gradient -->
+    <linearGradient id="mountainLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9ED" />
+      <stop offset="40%" stop-color="#E9C176" />
+      <stop offset="100%" stop-color="#C59A45" />
+    </linearGradient>
+
+    <!-- Star Glow -->
+    <radialGradient id="starRadial" cx="50%" cy="36%" r="35%">
+      <stop offset="0%" stop-color="#FFF5E0" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#E9C176" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#E9C176" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Star Facet Shading -->
+    <linearGradient id="facetHi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F5D491" />
+    </linearGradient>
+    <linearGradient id="facetShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B88E3E" />
+      <stop offset="100%" stop-color="#6E4C11" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Outer Medallion Frame -->
+  <circle cx="100" cy="100" r="95" stroke="url(#goldGrad)" stroke-width="2.5" />
+  <circle cx="100" cy="100" r="88" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="2 3" stroke-opacity="0.75" />
+  <circle cx="100" cy="100" r="84" stroke="url(#goldGrad)" stroke-width="0.75" stroke-opacity="0.45" />
+
+  <!-- Four Cardinal Diamond Ticks -->
+  <polygon points="100,1 102.5,5 100,9 97.5,5" fill="url(#goldGrad)" />
+  <polygon points="100,191 102.5,195 100,199 97.5,195" fill="url(#goldGrad)" />
+  <polygon points="1,100 5,102.5 9,100 5,97.5" fill="url(#goldGrad)" />
+  <polygon points="191,100 195,102.5 199,100 195,97.5" fill="url(#goldGrad)" />
+
+  <!-- Celestial Glow Backdrop -->
+  <circle cx="100" cy="72" r="50" fill="url(#starRadial)" />
+
+  <!-- Astral Orbit Arc & Constellation Field -->
+  <path d="M 42 66 C 54 44 76 34 100 34 C 124 34 146 44 158 66" 
+        stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="1.5 3.5" stroke-linecap="round" stroke-opacity="0.8" />
+  <path d="M 32 82 C 46 48 70 30 100 30 C 130 30 154 48 168 82" 
+        stroke="url(#goldGrad)" stroke-width="0.6" stroke-linecap="round" stroke-opacity="0.45" />
+
+  <!-- Constellation Stardust Points -->
+  <circle cx="48" cy="56" r="1.3" fill="#FFF5E0" />
+  <circle cx="62" cy="42" r="1.8" fill="#FFF5E0" />
+  <circle cx="80" cy="35" r="1.2" fill="#FFE7B3" />
+  <circle cx="120" cy="35" r="1.2" fill="#FFE7B3" />
+  <circle cx="138" cy="42" r="1.8" fill="#FFF5E0" />
+  <circle cx="152" cy="56" r="1.3" fill="#FFF5E0" />
+  <circle cx="38" cy="74" r="1.0" fill="#FFE7B3" />
+  <circle cx="162" cy="74" r="1.0" fill="#FFE7B3" />
+  <circle cx="100" cy="24" r="1.6" fill="#FFF5E0" />
+
+  <!-- Micro Star Accents -->
+  <g transform="translate(62, 58) scale(0.4)">
+    <polygon points="0,-10 2,-2 10,0 2,2 0,10 -2,2 -10,0 -2,-2" fill="url(#goldGrad)" />
+  </g>
+  <g transform="translate(138, 58) scale(0.4)">
+    <polygon points="0,-10 2,-2 10,0 2,2 0,10 -2,2 -10,0 -2,-2" fill="url(#goldGrad)" />
+  </g>
+  <g transform="translate(46, 90) scale(0.35)">
+    <polygon points="0,-10 2,-2 10,0 2,2 0,10 -2,2 -10,0 -2,-2" fill="url(#goldGrad)" />
+  </g>
+  <g transform="translate(154, 90) scale(0.35)">
+    <polygon points="0,-10 2,-2 10,0 2,2 0,10 -2,2 -10,0 -2,-2" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- ================= GEOMETRIC HIMALAYAN MOUNTAINS ================= -->
+  <!-- Base Medallion Arc Clipping Area -->
+  <g>
+    <!-- Left Ridge Foothills -->
+    <polygon points="18,138 46,110 68,132 40,154 22,142" fill="url(#mountainDark)" />
+    <polygon points="46,110 68,132 54,142 36,124" fill="url(#mountainLight)" />
+
+    <!-- Right Ridge Foothills -->
+    <polygon points="182,138 154,110 132,132 160,154 178,142" fill="url(#mountainLight)" />
+    <polygon points="154,110 132,132 146,142 164,124" fill="url(#mountainDark)" />
+
+    <!-- Secondary Left Peak -->
+    <polygon points="46,110 74,86 98,124 68,132" fill="url(#mountainLight)" />
+    <polygon points="74,86 98,124 82,144 58,122" fill="url(#mountainDark)" />
+
+    <!-- Secondary Right Peak -->
+    <polygon points="154,110 126,86 102,124 132,132" fill="url(#mountainDark)" />
+    <polygon points="126,86 102,124 118,144 142,122" fill="url(#mountainLight)" />
+
+    <!-- Central Majestic Everest / Shangarh Peak -->
+    <!-- Center Peak: Apex at (100, 72) -->
+    <!-- Left Sunlit Face of Central Peak -->
+    <polygon points="100,72 68,132 100,165" fill="url(#mountainLight)" />
+    <!-- Right Shaded Face of Central Peak -->
+    <polygon points="100,72 132,132 100,165" fill="url(#mountainDark)" />
+    
+    <!-- Central Ridge Facet Divider -->
+    <polygon points="100,72 96,112 100,165 104,112" fill="url(#facetHi)" opacity="0.6" />
+
+    <!-- Mountain Crisp Ridge Lines -->
+    <path d="M 22 142 L 46 110 L 74 86 L 100 72 L 126 86 L 154 110 L 178 142" 
+          stroke="url(#goldGrad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 100 72 L 100 165" stroke="url(#goldGrad)" stroke-width="1.2" stroke-linecap="round" />
+    <path d="M 74 86 L 98 124" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.8" />
+    <path d="M 126 86 L 102 124" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.8" />
+    <path d="M 46 110 L 68 132" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.8" />
+    <path d="M 154 110 L 132 132" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.8" />
+
+    <!-- Base Horizon Grounding Rim -->
+    <path d="M 24 144 C 44 172 70 186 100 186 C 130 186 156 172 176 144" 
+          stroke="url(#goldGrad)" stroke-width="1.8" fill="none" />
+  </g>
+
+  <!-- ================= RADIANT CELESTIAL POLARIS STAR ================= -->
+  <!-- Centered at apex (100, 72) with rays spanning into the sky -->
+  <g transform="translate(100, 72)">
+    <!-- NORTH MAJOR RAY -->
+    <polygon points="0,0 -4,0 0,-44" fill="url(#facetHi)" />
+    <polygon points="0,0 4,0 0,-44" fill="url(#facetShade)" />
+
+    <!-- SOUTH RAY (Anchors into Central Peak) -->
+    <polygon points="0,0 -3.5,0 0,26" fill="url(#facetShade)" />
+    <polygon points="0,0 3.5,0 0,26" fill="url(#facetHi)" />
+
+    <!-- WEST MAJOR RAY -->
+    <polygon points="0,0 0,-4 -36,0" fill="url(#facetHi)" />
+    <polygon points="0,0 0,4 -36,0" fill="url(#facetShade)" />
+
+    <!-- EAST MAJOR RAY -->
+    <polygon points="0,0 0,-4 36,0" fill="url(#facetShade)" />
+    <polygon points="0,0 0,4 36,0" fill="url(#facetHi)" />
+
+    <!-- DIAGONAL NW RAY -->
+    <polygon points="0,0 -2.5,-2.5 -22,-22" fill="url(#facetHi)" />
+    <polygon points="0,0 2.5,-2.5 -22,-22" fill="url(#facetShade)" />
+
+    <!-- DIAGONAL NE RAY -->
+    <polygon points="0,0 2.5,-2.5 22,-22" fill="url(#facetShade)" />
+    <polygon points="0,0 -2.5,-2.5 22,-22" fill="url(#facetHi)" />
+
+    <!-- DIAGONAL SW RAY -->
+    <polygon points="0,0 -2.5,2.5 -18,18" fill="url(#facetShade)" />
+    <polygon points="0,0 2.5,2.5 -18,18" fill="url(#facetHi)" />
+
+    <!-- DIAGONAL SE RAY -->
+    <polygon points="0,0 2.5,2.5 18,18" fill="url(#facetHi)" />
+    <polygon points="0,0 -2.5,2.5 18,18" fill="url(#facetShade)" />
+
+    <!-- Central Sparkling Diamond Core -->
+    <polygon points="0,-5 5,0 0,5 -5,0" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+  </g>
+</svg>
