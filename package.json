@@ -4,5 +4,13 @@
   "private": true,
   "description": "Celestia Inn LLP — static site with a Razorpay booking engine on Vercel functions",
   "type": "module",
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "deployments": "vercel ls",
+    "verify": "curl -sS -w '\\nhttp: %{http_code}\\n' 'https://www.celestiainn.in/api/availability?propertyId=thp'"
+  }
 }
