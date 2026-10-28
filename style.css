@@ -195,6 +195,9 @@ body {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-headline);
   font-size: 1.5rem;
   font-weight: 600;
@@ -204,8 +207,28 @@ body {
   transition: var(--transition-fast);
 }
 
+.nav-logo-mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: block;
+}
+
 .nav-logo:hover {
   color: var(--primary-gold-hover);
+}
+
+/* The emblem needs ~32px to stay legible; below that the wordmark carries it. */
+@media (max-width: 400px) {
+  .nav-logo-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-logo {
+    font-size: 1.3rem;
+    gap: 8px;
+  }
 }
 
 .nav-links {
