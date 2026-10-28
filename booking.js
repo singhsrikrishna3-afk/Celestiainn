@@ -33,7 +33,7 @@
   function init() {
     const ids = [
       'partnership-form', 'submit-btn', 'stay-destination', 'booking-live',
-      'booking-inquiry-only', 'email', 'check-in-date', 'check-out-date',
+      'booking-inquiry-only', 'inquiry-opening-soon', 'email', 'check-in-date', 'check-out-date',
       'guest-count', 'guest-notes', 'availability-note', 'quote-panel',
       'quote-rows', 'quote-total', 'quote-foot', 'form-error', 'form-note-text',
       'success-overlay', 'success-overlay-title', 'success-overlay-desc',
@@ -69,9 +69,13 @@
   // Mode: online booking vs inquiry-only
   // -------------------------------------------------------------------------
 
+  /** Whether the chosen stay is meant to be bookable, ignoring outages. */
+  function isMarkedBookable() {
+    return el.stayDestination?.selectedOptions?.[0]?.dataset?.bookable === 'true';
+  }
+
   function isOnlineBookable() {
-    const opt = el.stayDestination?.selectedOptions?.[0];
-    return opt?.dataset?.bookable === 'true' && !state.loadError;
+    return isMarkedBookable() && !state.loadError;
   }
 
   function onDestinationChange() {
@@ -84,6 +88,23 @@
     const live = isOnlineBookable();
     if (el.bookingLive) el.bookingLive.hidden = !live;
     if (el.bookingInquiryOnly) el.bookingInquiryOnly.hidden = live;
+
+    // Two different things land in the inquiry panel: a collection that is not
+    // open for booking yet, and a bookable one whose availability call failed.
+    // "Opening soon" is only true of the first, so hide it for the second —
+    // otherwise THP reads "Book Online", "Opening soon" and "unavailable" at once.
+    if (el.inquiryOpeningSoon) {
+      el.inquiryOpeningSoon.hidden = isMarkedBookable();
+    }
+
+    // The outage notice belongs to a bookable stay whose availability call
+    // failed, not to a collection that is simply not open yet. Driving it from
+    // here rather than only from the catch keeps it right when the guest
+    // switches stays and comes back.
+    if (isBookingTabActive()) {
+      if (!isMarkedBookable()) clearError();
+      else if (state.loadError) showLoadErrorNotice({ scroll: false });
+    }
 
     // Required-ness follows visibility so the browser never blocks submit on a hidden field.
     toggleRequired(el.email, live);
@@ -153,12 +174,9 @@
 
       state.loadError = true;
       state.loaded = false;
-      // Fall back to the inquiry flow rather than showing a broken booking form.
+      // Fall back to the inquiry flow rather than showing a broken booking
+      // form. syncMode() raises the notice itself, so it stays in one place.
       syncMode();
-      showError(
-        '<strong>Live booking is unavailable right now.</strong> ' +
-        'Leave your dates below and our reservation host will confirm by email.',
-      );
     }
   }
 
@@ -549,12 +567,22 @@
     }
   }
 
-  function showError(msg) {
+  function showError(msg, { scroll = true } = {}) {
     if (!el.formError) return;
     el.formError.innerHTML =
       `<span class="material-symbols-outlined">error</span><div>${msg}</div>`;
     show(el.formError);
-    el.formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // syncMode() re-raises the availability notice on every tab and stay
+    // change, and scrolling each time would yank the page around.
+    if (scroll) el.formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function showLoadErrorNotice(opts) {
+    showError(
+      '<strong>Live booking is unavailable right now.</strong> ' +
+      'Leave your dates below and our reservation host will confirm by email.',
+      opts,
+    );
   }
 
   function clearError() { hide(el.formError); }
