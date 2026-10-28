@@ -1,0 +1,18 @@
+# Files uploaded to Vercel are served publicly at the site root. Anything here
+# is internal, so keep it out of the deployment rather than publishing it at
+# https://www.celestiainn.in/<path>.
+
+# Internal documentation
+*.md
+
+# Operator tooling — reveals which secrets exist and how they are set
+setup-secrets.sh
+
+# Database schema — run by hand in the Supabase SQL editor, never at runtime
+db/
+
+# Brand kit: ~5.6MB, used by designers and printers, never by the site
+Celestia_Inn_Brand_Kit/
+
+# Duplicate copies of brand kit files (untracked, but keep them out either way)
+assets/branding/
